@@ -1,7 +1,9 @@
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 
-browser = webdriver.Chrome()
+options = webdriver.ChromeOptions()
+options.add_argument('--ignore-certificate-errors')
+browser = webdriver.Chrome(chrome_options=options)
 
 
 def by_locator(locator):
@@ -11,4 +13,6 @@ def by_locator(locator):
         return browser.find_element(By.CSS_SELECTOR, locator)
 
 
-
+def url():
+    print("URL is " + browser.current_url)
+    return browser.current_url
