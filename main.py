@@ -1,33 +1,22 @@
-import unittest
 import time
-from selenium import webdriver
+
 from selenium.webdriver import Keys
-from selenium.webdriver.common import by
 from selenium.webdriver.common.by import By
-from Core import by_locator, browser, url
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from Core import by_locator, browser
 import Locators
+import Core
+from Logout import logout
 
 
 def test_registration1():
-    link = "https://192.168.253.40:7770/#/login"
-    browser.get(link)
+    browser.get(Locators.link)
     by_locator(Locators.login).send_keys("2")
     by_locator(Locators.password).send_keys("must2", Keys.ENTER)
-    # ждем загрузки страницы
-    time.sleep(1)
+    WebDriverWait(browser, 5).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, Locators.icon)))
     assert by_locator(Locators.icon).text == "К", "Клиент"
-    by_locator(Locators.icon).click()
-    by_locator(Locators.logout).click()
-    time.sleep(1)
-    if url().endswith("login"):
-        print("Разлогинивание")
-    else:
-        print("нет")
-    # находим элемент, содержащий текст
-    # welcome_text_elt = by_locator("h1")
-    # записываем в переменную welcome_text текст из элемента welcome_text_elt
-    # welcome_text = welcome_text_elt.text
-    # assert (welcome_text, "Congratulations! You have successfully registered!",
-    # "Удачное выполнение теста")
-    time.sleep(5)
-    browser.quit()
+    WebDriverWait(browser, 5).until(EC.visibility_of(by_locator(Locators.menu)))
+    by_locator(Locators.message).click()
+    by_locator(Locators.btSendMessage)
