@@ -4,7 +4,7 @@ password = "#passInput"
 
 #dashboard
 icon = "div.user-logout>div"
-logout = "div.ng-tns-c73-0>a"
+logout = "div>a.-pointer"
 
 #links
 link = "https://192.168.253.40:7770/#/login"
@@ -12,4 +12,11 @@ link = "https://192.168.253.40:7770/#/login"
 #menu
 menu = "dashboard>menu"
 message = "menu-item>ul>li:nth-child(4)>span"
-btSendMessage = "button.button-primary"
+
+#message
+btCreateMessage = "button.button-primary"
+listDrafr = "sc-modal-body>ul"
+admin = ".app-select-list>li"
+inputField = "sc-modal-body>textarea"
+btSendMessage = "sc-modal-footer>div>button.button-primary"
+notification = "body>notifications-container>div>notification"

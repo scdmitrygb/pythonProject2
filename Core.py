@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
@@ -16,3 +17,7 @@ def by_locator(locator):
 def url():
     print("URL is " + browser.current_url)
     return browser.current_url
+
+
+def web_driver_wait():
+    return WebDriverWait(browser, 10).until
