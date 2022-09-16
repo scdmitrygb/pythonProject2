@@ -1,22 +1,27 @@
-import time
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
-
 import Locators
-from Core import by_locator, web_driver_wait, browser
+from typing import List
+from Core import by_locator, wait, close_notification, browser
 
 
 def create_message():
-    WebDriverWait(browser, 10).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, Locators.message)))
-    by_locator(Locators.message).click()
+    wait.until(EC.visibility_of_element_located(
+        (By.CSS_SELECTOR, Locators.message))).click()
     by_locator(Locators.btCreateMessage).click()
-    WebDriverWait(browser, 10).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, Locators.listDrafr)))
-    by_locator(Locators.admin).click()
-    WebDriverWait(browser, 10).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, Locators.inputField)))
-    by_locator(Locators.inputField).send_keys("SMS for Administrator")
-    by_locator(Locators.btSendMessage).click()
-
+    wait.until(EC.visibility_of_element_located(
+        (By.CSS_SELECTOR, Locators.listDrafr)))
+    my_list: List[WebElement] = browser.find_elements(By.CSS_SELECTOR, Locators.usersDraft)
+    messages = ["Администратору", "Дилеру"]
+    for i in my_list:
+        if i.text in messages:
+            i.click()
+            name = i.text
+            wait.until(EC.visibility_of_element_located(
+                (By.CSS_SELECTOR, Locators.inputField))).send_keys(f"SMS for {name}")
+            by_locator(Locators.btSendMessage).click()
+            close_notification()
+            if name != (messages[-1]):
+                by_locator(Locators.btCreateMessage).click()
+            close_notification()
