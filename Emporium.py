@@ -4,7 +4,7 @@ import Locators
 from Core import by_locator, wait
 
 
-def about_system():
+def test_about_system(login_client):
     wait.until(EC.visibility_of_element_located(
         (By.CSS_SELECTOR, Locators.sc_emporium))).click()
     wait.until(EC.visibility_of_element_located(

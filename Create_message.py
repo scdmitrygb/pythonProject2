@@ -6,7 +6,7 @@ from typing import List
 from Core import by_locator, wait, close_notification, browser
 
 
-def create_message():
+def test_create_message(login_client):
     wait.until(EC.visibility_of_element_located(
         (By.CSS_SELECTOR, Locators.message))).click()
     by_locator(Locators.btCreateMessage).click()

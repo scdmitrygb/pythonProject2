@@ -1,10 +1,11 @@
+import pytest
 from selenium.webdriver.common.by import By
 import Locators
 from Core import by_locator, url, wait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-def logout():
+def test_logout(login_client):
     by_locator(Locators.icon).click()
     by_locator(Locators.logout).click()
     wait.until(

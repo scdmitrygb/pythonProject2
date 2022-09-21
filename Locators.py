@@ -13,8 +13,8 @@ link = "https://192.168.253.40:7770/#/login"
 # menu
 menu = "dashboard>menu"
 sc_emporium = "menu>menu-item>ul>li:nth-child(1)>span"
-about_system = "li.ng-tns-c202-1>menu-item>ul>li:nth-child(2)>span"
-message = "menu-item>ul>li:nth-child(4)>span"
+about_system = "menu>menu-item>ul>li.ng-tns-c204-1>menu-item>ul>li:nth-child(2)>span"
+message = "menu>menu-item>ul>li:nth-child(5)>span"
 
 # about system
 help_menu = "menu-item>ul>li.menu-item>menu-item>ul>li:nth-child(1)>span"
