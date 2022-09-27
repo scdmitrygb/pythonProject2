@@ -17,6 +17,13 @@ def by_locator(locator):
         return browser.find_element(By.CSS_SELECTOR, locator)
 
 
+def by_locators(locators):
+    if locators.startswith("/"):
+        return browser.find_elements(By.XPATH, locators)
+    else:
+        return browser.find_elements(By.CSS_SELECTOR, locators)
+
+
 def url():
     print("URL is " + browser.current_url)
     return browser.current_url

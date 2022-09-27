@@ -6,12 +6,15 @@ password = "#passInput"
 icon = "div.user-logout>div"
 logout = "div>a.-pointer"
 close = "body>notifications-container>div>notification>i"
+copyright_year = "app-footer > div > span"
 
 # links
 link = "https://192.168.253.40:7770/#/login"
 
 # menu
 menu = "dashboard>menu"
+menu_arrow = " dashboard>menu>div>span"
+menu_item = "menu-item>ul>li>span"
 sc_emporium = "menu>menu-item>ul>li:nth-child(1)>span"
 about_system = "menu>menu-item>ul>li.ng-tns-c204-1>menu-item>ul>li:nth-child(2)>span"
 message = "menu>menu-item>ul>li:nth-child(5)>span"
@@ -34,3 +37,4 @@ btSendMessage = "sc-modal-footer>div>button.button-primary"
 notification = "body>notifications-container>div>notification"
 usersDraft = "sc-modal-body li"
 
+my_list = [("2", "must2", "К"), ("admin", "must2", "A"), ("manager", "must2", "М")]
